@@ -10,11 +10,6 @@ import {
   isDateRange
 } from "react-day-picker";
 import * as locales from "react-day-picker/locale";
-import {
-  DayPicker as DayPickerpersian,
-  faIR as faIRpersian,
-  getDateLib
-} from "react-day-picker/persian";
 
 import { BrowserWindow } from "../BrowserWindow";
 import { HighlightWithTheme } from "../HighlightWithTheme";
@@ -43,35 +38,20 @@ export function Playground() {
     calendar: undefined,
     locale: undefined,
     month: undefined,
-    dir:
-      props.calendar === "persian" && props.dir === "rtl"
-        ? undefined
-        : props.dir
+    dir: props.dir
   })} />`;
 
-  if (props.calendar === "persian") {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker/persian";\n\n` +
-      formattedProps;
-  } else {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker";\n\n` + formattedProps;
-  }
+  formattedProps =
+    `import { DayPicker } from "react-day-picker";\n\n` + formattedProps;
+
   const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-  const DayPickerComponent =
-    props.calendar === "persian" ? DayPickerpersian : DayPicker;
+  const DayPickerComponent = DayPicker;
 
-  const dateLib =
-    props.calendar === "persian"
-      ? getDateLib({
-          locale: (props.locale as locales.Locale) ?? faIRpersian,
-          timeZone: props.timeZone
-        })
-      : new DateLib({
-          locale: (props.locale as locales.Locale) ?? locales.enUS,
-          timeZone: props.timeZone
-        });
+  const dateLib = new DateLib({
+    locale: (props.locale as locales.Locale) ?? locales.enUS,
+    timeZone: props.timeZone
+  });
 
   return (
     <div className={styles.playground}>

@@ -31,7 +31,6 @@ const config: Config.InitialOptions = {
       roots: ["<rootDir>/examples"],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
-        "react-day-picker/persian": ["<rootDir>/src/persian.tsx"],
         "react-day-picker": ["<rootDir>/src/index.ts"],
         "^(\\.\\.?\\/.+)\\.jsx?$": "$1" // see https://github.com/kulshekhar/ts-jest/issues/1057
       }

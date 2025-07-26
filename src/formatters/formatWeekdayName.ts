@@ -3,7 +3,7 @@ import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 /**
  * Formats the name of a weekday to be displayed in the weekdays header.
  *
- * @defaultValue `cccccc` (e.g., "Mo" for Monday).
+ * @defaultValue `ccc` (e.g., "Mo" for Monday).
  * @param weekday The date representing the weekday.
  * @param options Configuration options for the date library.
  * @param dateLib The date library to use for formatting. If not provided, a new
@@ -17,5 +17,5 @@ export function formatWeekdayName(
   options?: DateLibOptions,
   dateLib?: DateLib
 ) {
-  return (dateLib ?? new DateLib(options)).format(weekday, "cccccc");
+  return (dateLib ?? new DateLib(options)).format(weekday, "ccc").slice(0, 2);
 }

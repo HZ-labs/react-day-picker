@@ -174,18 +174,13 @@
   },
   "files": [
     "dist",
-    "src",
-    "jalali.js",
-    "jalali.d.ts",
-    "persian.js",
-    "persian.d.ts",
-    "locale.js",
-    "locale.d.ts"
+    "src"
   ],
   "dependencies": {
     "@date-fns/tz": "^1.2.0",
     "date-fns": "^4.1.0",
-    "date-fns-jalali": "^4.1.0-0"
+    "date-fns-jalali": "^4.1.0-0",
+    "luxon": "^3.7.1"
   },
   "devDependencies": {
     "@jest/types": "^29.6.3",
@@ -198,6 +193,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/jest": "^29.5.14",
+    "@types/luxon": "^3.6.2",
     "@types/node": "^22.14.1",
     "@types/react": "^19.1.1",
     "@types/react-dom": "^19.1.2",

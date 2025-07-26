@@ -21,7 +21,7 @@ const dayModifiers: Modifiers = {
 describe("when the day is selected", () => {
   test("return the label", () => {
     expect(labelDayButton(day, { ...dayModifiers, selected: true })).toEqual(
-      "Monday, November 21st, 2022, selected"
+      "Monday, November 21, 2022, selected"
     );
   });
 });
@@ -29,7 +29,7 @@ describe("when the day is selected", () => {
 describe("when the day is today", () => {
   test("return the label", () => {
     expect(labelDayButton(day, { ...dayModifiers, today: true })).toEqual(
-      "Today, Monday, November 21st, 2022"
+      "Today, Monday, November 21, 2022"
     );
   });
 });

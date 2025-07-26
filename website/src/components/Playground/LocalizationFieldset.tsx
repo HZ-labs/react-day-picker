@@ -6,11 +6,6 @@ import {
   defaultDateLib,
   Numerals
 } from "react-day-picker";
-import * as locales from "react-day-picker/locale";
-import {
-  enUS as enUSPersian,
-  faIR as faIRPersian
-} from "react-day-picker/persian";
 
 import styles from "./styles.module.css";
 import { DayPickerPropsWithCalendar } from "./useQueryStringSync";
@@ -64,8 +59,7 @@ const numerals: { value: Numerals; label: string }[] = [
   { value: "knda", label: "Kannada" },
   { value: "mlym", label: "Malayalam" }
 ];
-const calendars: ("persian" | "gregorian")[] = ["gregorian", "persian"];
-const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
+const calendars: ("gregorian")[] = ["gregorian"];
 
 interface LocalizationFieldsetProps {
   props: DayPickerPropsWithCalendar;
@@ -112,8 +106,8 @@ export function LocalizationFieldset({
               setProps({
                 ...props,
                 calendar: e.target.value as "gregorian" | "persian",
-                locale: e.target.value === "persian" ? faIRPersian : undefined,
-                dir: e.target.value === "persian" ? "rtl" : undefined
+                locale: undefined,
+                dir: undefined
               });
             }}
           >
@@ -154,23 +148,15 @@ export function LocalizationFieldset({
             onChange={(e) =>
               setProps({
                 ...props,
-                locale:
-                  e.target.value === ""
-                    ? undefined
-                    : Object.values(locales).find(
-                        (locale) => locale.code === e.target.value
-                      )
+                locale: undefined
               })
             }
           >
             <option value=""></option>
-            {Object.keys(
-              props.calendar === "persian" ? persianLocales : locales
-            ).map((locale) => {
-              const code = locales[locale as keyof typeof locales].code;
+            {['en','ru','uk','de','fr','it','jp'].map((locale) => {
               return (
-                <option key={locale} value={code}>
-                  {code}
+                <option key={locale} value={locale}>
+                  {locale}
                 </option>
               );
             })}

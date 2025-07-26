@@ -1,4 +1,3 @@
-import { TZDate } from "@date-fns/tz";
 import {
   addDays,
   addMonths,
@@ -31,7 +30,7 @@ import {
   startOfMonth,
   startOfWeek,
   startOfYear
-} from "date-fns";
+} from "../helpers/luxonWrapper";
 import type {
   EndOfWeekOptions,
   StartOfWeekOptions,
@@ -39,17 +38,13 @@ import type {
   Interval,
   GetMonthOptions,
   GetYearOptions,
-  GetWeekOptions
-} from "date-fns";
-import type { Locale } from "date-fns/locale";
-import { enUS } from "date-fns/locale/en-US";
+  GetWeekOptions,
+  FirstWeekContainsDate
+} from "../helpers/luxon.types";
 
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
 import { Numerals } from "../types/shared.js";
-
-export type { Locale } from "date-fns/locale";
-export type { Month as DateFnsMonth } from "date-fns";
 
 /**
  * @ignore
@@ -78,13 +73,10 @@ export interface DateLibOptions
   /** A constructor for the `Date` object. */
   Date?: typeof Date;
   /** A locale to use for formatting dates. */
-  locale?: Locale;
-  /**
-   * A time zone to use for dates.
-   *
-   * @since 9.5.0
-   */
-  timeZone?: string;
+  locale?: string;
+  firstWeekContainsDate?: FirstWeekContainsDate;
+  useAdditionalDayOfYearTokens?: boolean;
+  useAdditionalWeekYearTokens?: boolean;
   /**
    * The numbering system to use for formatting numbers.
    *
@@ -119,7 +111,7 @@ export class DateLib {
     options?: DateLibOptions,
     overrides?: Partial<typeof DateLib.prototype>
   ) {
-    this.options = { locale: enUS, ...options };
+    this.options = { locale: 'en-US', ...options };
     this.overrides = overrides;
   }
 
@@ -171,13 +163,6 @@ export class DateLib {
   }
 
   /**
-   * Reference to the built-in Date constructor.
-   *
-   * @deprecated Use `newDate()` or `today()`.
-   */
-  Date: typeof Date = Date;
-
-  /**
    * Creates a new `Date` object representing today's date.
    *
    * @since 9.5.0
@@ -187,10 +172,8 @@ export class DateLib {
     if (this.overrides?.today) {
       return this.overrides.today();
     }
-    if (this.options.timeZone) {
-      return TZDate.tz(this.options.timeZone);
-    }
-    return new this.Date();
+ 
+    return new Date();
   };
 
   /**
@@ -205,9 +188,6 @@ export class DateLib {
   newDate = (year: number, monthIndex: number, date: number): Date => {
     if (this.overrides?.newDate) {
       return this.overrides.newDate(year, monthIndex, date);
-    }
-    if (this.options.timeZone) {
-      return new TZDate(year, monthIndex, date, this.options.timeZone);
     }
     return new Date(year, monthIndex, date);
   };
@@ -343,10 +323,11 @@ export class DateLib {
    * @param date The original date.
    * @returns The end of the week.
    */
-  endOfWeek = (date: Date, options?: EndOfWeekOptions<Date>): Date => {
+  endOfWeek = (date: Date, options?: EndOfWeekOptions): Date => {
     return this.overrides?.endOfWeek
       ? this.overrides.endOfWeek(date, options)
-      : endOfWeek(date, this.options);
+      : endOfWeek(date);
+      // : endOfWeek(date, this.options);
   };
 
   /**
@@ -375,7 +356,8 @@ export class DateLib {
   ): string => {
     const formatted = this.overrides?.format
       ? this.overrides.format(date, formatStr, this.options)
-      : format(date, formatStr, this.options);
+      : format(date, formatStr);
+      // : format(date, formatStr, this.options);
     if (this.options.numerals && this.options.numerals !== "latn") {
       return this.replaceDigits(formatted);
     }
@@ -403,7 +385,8 @@ export class DateLib {
   getMonth = (date: Date, options?: GetMonthOptions): number => {
     return this.overrides?.getMonth
       ? this.overrides.getMonth(date, this.options)
-      : getMonth(date, this.options);
+      : getMonth(date);
+      // : getMonth(date, this.options);
   };
 
   /**
@@ -415,7 +398,8 @@ export class DateLib {
   getYear = (date: Date, options?: GetYearOptions): number => {
     return this.overrides?.getYear
       ? this.overrides.getYear(date, this.options)
-      : getYear(date, this.options);
+      : getYear(date);
+      // : getYear(date, this.options);
   };
 
   /**
@@ -427,7 +411,8 @@ export class DateLib {
   getWeek = (date: Date, options?: GetWeekOptions): number => {
     return this.overrides?.getWeek
       ? this.overrides.getWeek(date, this.options)
-      : getWeek(date, this.options);
+      : getWeek(date);
+      // : getWeek(date, this.options);
   };
 
   /**
@@ -610,7 +595,8 @@ export class DateLib {
   startOfWeek = (date: Date, options?: StartOfWeekOptions): Date => {
     return this.overrides?.startOfWeek
       ? this.overrides.startOfWeek(date, this.options)
-      : startOfWeek(date, this.options);
+      // : startOfWeek(date, this.options);
+      : startOfWeek(date);
   };
 
   /**
@@ -626,7 +612,7 @@ export class DateLib {
   };
 }
 /** The default locale (English). */
-export { enUS as defaultLocale } from "date-fns/locale/en-US";
+export const defaultLocale = "en-US";
 
 /**
  * The default date library with English locale.
