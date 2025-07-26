@@ -1,6 +1,6 @@
 import React from "react";
 
-import { startOfDay, startOfMonth } from "./helpers/luxonWrapper";
+import { startOfDay, startOfMonth } from "./helpers/luxonWrapper.js";
 
 import {
   activeElement,
