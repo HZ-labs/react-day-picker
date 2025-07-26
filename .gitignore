@@ -1,7 +1,9 @@
 .DS_Store
 
 node_modules
-dist
 /performance-tests/reports/report.html
 /performance-tests/reports/markdown-report.md
 /coverage
+/examples
+/examples-app
+/website
