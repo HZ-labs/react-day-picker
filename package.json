@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "9.8.0",
+  "version": "9.8.1",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
@@ -33,36 +33,6 @@
       "require": {
         "types": "./dist/cjs/index.d.ts",
         "default": "./dist/cjs/index.js"
-      }
-    },
-    "./jalali": {
-      "import": {
-        "types": "./dist/esm/jalali.d.ts",
-        "default": "./dist/esm/jalali.js"
-      },
-      "require": {
-        "types": "./dist/cjs/jalali.d.ts",
-        "default": "./dist/cjs/jalali.js"
-      }
-    },
-    "./persian": {
-      "import": {
-        "types": "./dist/esm/persian.d.ts",
-        "default": "./dist/esm/persian.js"
-      },
-      "require": {
-        "types": "./dist/cjs/persian.d.ts",
-        "default": "./dist/cjs/persian.js"
-      }
-    },
-    "./locale": {
-      "import": {
-        "types": "./dist/esm/locale.d.ts",
-        "default": "./dist/esm/locale.js"
-      },
-      "require": {
-        "types": "./dist/cjs/locale.d.ts",
-        "default": "./dist/cjs/locale.js"
       }
     },
     "./style": {
