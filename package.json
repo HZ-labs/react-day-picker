@@ -177,12 +177,12 @@
     "src"
   ],
   "dependencies": {
-    "@date-fns/tz": "^1.2.0",
-    "date-fns": "^4.1.0",
-    "date-fns-jalali": "^4.1.0-0",
     "luxon": "^3.7.1"
   },
   "devDependencies": {
+    "@date-fns/tz": "^1.2.0",
+    "date-fns": "^4.1.0",
+    "date-fns-jalali": "^4.1.0-0",
     "@jest/types": "^29.6.3",
     "@radix-ui/react-select": "^2.1.7",
     "@swc/core": "^1.11.8",
