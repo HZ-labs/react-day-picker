@@ -30,7 +30,7 @@ import {
   startOfMonth,
   startOfWeek,
   startOfYear
-} from "../helpers/luxonWrapper";
+} from "../helpers/luxonWrapper.js";
 import type {
   EndOfWeekOptions,
   StartOfWeekOptions,
@@ -40,7 +40,7 @@ import type {
   GetYearOptions,
   GetWeekOptions,
   FirstWeekContainsDate
-} from "../helpers/luxon.types";
+} from "../helpers/luxon.types.js";
 
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";

@@ -1,4 +1,4 @@
-import type { EndOfWeekOptions, StartOfWeekOptions, FormatOptions as DateFnsFormatOptions, Interval, GetMonthOptions, GetYearOptions, GetWeekOptions, FirstWeekContainsDate } from "../helpers/luxon.types";
+import type { EndOfWeekOptions, StartOfWeekOptions, FormatOptions as DateFnsFormatOptions, Interval, GetMonthOptions, GetYearOptions, GetWeekOptions, FirstWeekContainsDate } from "../helpers/luxon.types.js";
 import { Numerals } from "../types/shared.js";
 /**
  * @ignore
