@@ -75,13 +75,6 @@ exports[`should match the snapshot 1`] = `
                 class="rdp-weekdays"
               >
                 <th
-                  aria-label="Sunday"
-                  class="rdp-weekday"
-                  scope="col"
-                >
-                  Su
-                </th>
-                <th
                   aria-label="Monday"
                   class="rdp-weekday"
                   scope="col"
@@ -123,6 +116,13 @@ exports[`should match the snapshot 1`] = `
                 >
                   Sa
                 </th>
+                <th
+                  aria-label="Sunday"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  Su
+                </th>
               </tr>
             </thead>
             <tbody
@@ -131,14 +131,6 @@ exports[`should match the snapshot 1`] = `
               <tr
                 class="rdp-week"
               >
-                <td
-                  class="rdp-day rdp-hidden rdp-outside"
-                  data-day="2020-05-31"
-                  data-hidden="true"
-                  data-month="2020-05"
-                  data-outside="true"
-                  role="gridcell"
-                />
                 <td
                   class="rdp-day"
                   data-day="2020-06-01"
@@ -223,10 +215,6 @@ exports[`should match the snapshot 1`] = `
                     6
                   </button>
                 </td>
-              </tr>
-              <tr
-                class="rdp-week"
-              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-07"
@@ -241,6 +229,10 @@ exports[`should match the snapshot 1`] = `
                     7
                   </button>
                 </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-08"
@@ -325,10 +317,6 @@ exports[`should match the snapshot 1`] = `
                     13
                   </button>
                 </td>
-              </tr>
-              <tr
-                class="rdp-week"
-              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-14"
@@ -343,6 +331,10 @@ exports[`should match the snapshot 1`] = `
                     14
                   </button>
                 </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
                 <td
                   aria-selected="true"
                   class="rdp-day rdp-selected rdp-range_start"
@@ -437,10 +429,6 @@ exports[`should match the snapshot 1`] = `
                     20
                   </button>
                 </td>
-              </tr>
-              <tr
-                class="rdp-week"
-              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-21"
@@ -455,6 +443,10 @@ exports[`should match the snapshot 1`] = `
                     21
                   </button>
                 </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-22"
@@ -539,10 +531,6 @@ exports[`should match the snapshot 1`] = `
                     27
                   </button>
                 </td>
-              </tr>
-              <tr
-                class="rdp-week"
-              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-28"
@@ -557,6 +545,10 @@ exports[`should match the snapshot 1`] = `
                     28
                   </button>
                 </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-29"
@@ -617,6 +609,14 @@ exports[`should match the snapshot 1`] = `
                   data-outside="true"
                   role="gridcell"
                 />
+                <td
+                  class="rdp-day rdp-hidden rdp-outside"
+                  data-day="2020-07-05"
+                  data-hidden="true"
+                  data-month="2020-07"
+                  data-outside="true"
+                  role="gridcell"
+                />
               </tr>
             </tbody>
           </table>
@@ -627,7 +627,7 @@ exports[`should match the snapshot 1`] = `
         class="rdp-footer"
         role="status"
       >
-        June 15, 2020–June 19, 2020
+        June 15th, 2020–June 19th, 2020
       </div>
     </div>
     <button
@@ -714,13 +714,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 class="rdp-weekdays"
               >
                 <th
-                  aria-label="Sunday"
-                  class="rdp-weekday"
-                  scope="col"
-                >
-                  Su
-                </th>
-                <th
                   aria-label="Monday"
                   class="rdp-weekday"
                   scope="col"
@@ -762,6 +755,13 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 >
                   Sa
                 </th>
+                <th
+                  aria-label="Sunday"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  Su
+                </th>
               </tr>
             </thead>
             <tbody
@@ -770,14 +770,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <tr
                 class="rdp-week"
               >
-                <td
-                  class="rdp-day rdp-hidden rdp-outside"
-                  data-day="2020-05-31"
-                  data-hidden="true"
-                  data-month="2020-05"
-                  data-outside="true"
-                  role="gridcell"
-                />
                 <td
                   class="rdp-day"
                   data-day="2020-06-01"
@@ -862,10 +854,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                     6
                   </button>
                 </td>
-              </tr>
-              <tr
-                class="rdp-week"
-              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-07"
@@ -880,6 +868,10 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                     7
                   </button>
                 </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-08"
@@ -964,10 +956,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                     13
                   </button>
                 </td>
-              </tr>
-              <tr
-                class="rdp-week"
-              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-14"
@@ -982,6 +970,10 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                     14
                   </button>
                 </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-15"
@@ -1067,10 +1059,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                     20
                   </button>
                 </td>
-              </tr>
-              <tr
-                class="rdp-week"
-              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-21"
@@ -1085,6 +1073,10 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                     21
                   </button>
                 </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-22"
@@ -1169,10 +1161,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                     27
                   </button>
                 </td>
-              </tr>
-              <tr
-                class="rdp-week"
-              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-28"
@@ -1187,6 +1175,10 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                     28
                   </button>
                 </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
                 <td
                   class="rdp-day"
                   data-day="2020-06-29"
@@ -1242,6 +1234,14 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-04"
+                  data-hidden="true"
+                  data-month="2020-07"
+                  data-outside="true"
+                  role="gridcell"
+                />
+                <td
+                  class="rdp-day rdp-hidden rdp-outside"
+                  data-day="2020-07-05"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"

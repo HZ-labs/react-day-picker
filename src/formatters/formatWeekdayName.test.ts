@@ -1,4 +1,4 @@
-import { es } from "date-fns/locale/es";
+import { setLuxonLocale } from "@/test/luxonLocale";
 
 import { formatWeekdayName } from "./formatWeekdayName";
 
@@ -8,8 +8,9 @@ test("should return the formatted weekday name", () => {
   expect(formatWeekdayName(date)).toEqual("Mo");
 });
 
-describe("when a locale is passed in", () => {
+describe("when the Luxon locale is Spanish", () => {
+  setLuxonLocale("es");
   test("should format using the locale", () => {
-    expect(formatWeekdayName(date, { locale: es })).toEqual("lu");
+    expect(formatWeekdayName(date)).toEqual("lu");
   });
 });

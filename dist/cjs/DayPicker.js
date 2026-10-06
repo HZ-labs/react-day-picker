@@ -64,7 +64,7 @@ const typeguards_js_1 = require("./utils/typeguards.js");
  * @see https://daypicker.dev
  */
 function DayPicker(initialProps) {
-    let props = initialProps;
+    const props = initialProps;
     const { components, formatters, labels, dateLib, locale, classNames } = (0, react_1.useMemo)(() => {
         const locale = DateLib_js_1.defaultLocale || props.locale;
         const dateLib = new DateLib_js_1.DateLib({

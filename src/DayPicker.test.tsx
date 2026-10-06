@@ -1,7 +1,5 @@
 import React from "react";
 
-import { startOfDay, startOfMonth } from "./helpers/luxonWrapper.js";
-
 import {
   activeElement,
   dateButton,
@@ -10,13 +8,14 @@ import {
   nextButton,
   previousButton
 } from "@/test/elements";
+import { setLuxonLocale } from "@/test/luxonLocale";
 import { fireEvent, render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
 import { DayPicker } from "./DayPicker";
-import { defaultLocale } from "./classes/DateLib";
 import { MonthProps } from "./components/Month";
 import { MonthsProps } from "./components/Months";
+import { startOfDay, startOfMonth } from "./helpers/luxonWrapper.js";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
@@ -76,6 +75,12 @@ test("use custom components", () => {
 describe("when the date picker is focused", () => {
   test("focus the previous button", async () => {
     render(<DayPicker />);
+    await user.tab();
+    expect(activeElement()).toBe(previousButton());
+  });
+
+  test("on RTL, focus the previous button", async () => {
+    render(<DayPicker dir="rtl" />);
     await user.tab();
     expect(activeElement()).toBe(previousButton());
   });
@@ -141,21 +146,13 @@ describe("when the `month` is changed programmatically", () => {
   });
 });
 
-// test("extends the default locale", () => {
-//   render(
-//     <DayPicker
-//       month={new Date(2024, 0)}
-//       locale={{
-//         localize: {
-//           ...defaultLocale.localize,
-//           month: () => "bar"
-//         }
-//       }}
-//     />
-//   );
-//   // Check if the custom month name is rendered
-//   expect(grid("bar 2024")).toBeInTheDocument();
-// });
+describe("when the Luxon default locale is changed", () => {
+  setLuxonLocale("es");
+  test("should render the month in that locale", () => {
+    render(<DayPicker month={new Date(2024, 0)} />);
+    expect(grid("enero 2024")).toBeInTheDocument();
+  });
+});
 
 test("should render the custom components", () => {
   render(

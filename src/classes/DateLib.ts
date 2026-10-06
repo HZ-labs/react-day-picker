@@ -1,3 +1,14 @@
+import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
+import type {
+  EndOfWeekOptions,
+  StartOfWeekOptions,
+  FormatOptions as DateFnsFormatOptions,
+  Interval,
+  GetMonthOptions,
+  GetYearOptions,
+  GetWeekOptions,
+  FirstWeekContainsDate
+} from "../helpers/luxon.types.js";
 import {
   addDays,
   addMonths,
@@ -31,18 +42,6 @@ import {
   startOfWeek,
   startOfYear
 } from "../helpers/luxonWrapper.js";
-import type {
-  EndOfWeekOptions,
-  StartOfWeekOptions,
-  FormatOptions as DateFnsFormatOptions,
-  Interval,
-  GetMonthOptions,
-  GetYearOptions,
-  GetWeekOptions,
-  FirstWeekContainsDate
-} from "../helpers/luxon.types.js";
-
-import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
 import { Numerals } from "../types/shared.js";
 
@@ -111,7 +110,7 @@ export class DateLib {
     options?: DateLibOptions,
     overrides?: Partial<typeof DateLib.prototype>
   ) {
-    this.options = { locale: 'en-US', ...options };
+    this.options = { locale: "en-US", ...options };
     this.overrides = overrides;
   }
 
@@ -172,7 +171,7 @@ export class DateLib {
     if (this.overrides?.today) {
       return this.overrides.today();
     }
- 
+
     return new Date();
   };
 
@@ -326,8 +325,7 @@ export class DateLib {
   endOfWeek = (date: Date, options?: EndOfWeekOptions): Date => {
     return this.overrides?.endOfWeek
       ? this.overrides.endOfWeek(date, options)
-      : endOfWeek(date);
-      // : endOfWeek(date, this.options);
+      : endOfWeek(date, this.options);
   };
 
   /**
@@ -357,7 +355,7 @@ export class DateLib {
     const formatted = this.overrides?.format
       ? this.overrides.format(date, formatStr, this.options)
       : format(date, formatStr);
-      // : format(date, formatStr, this.options);
+    // : format(date, formatStr, this.options);
     if (this.options.numerals && this.options.numerals !== "latn") {
       return this.replaceDigits(formatted);
     }
@@ -386,7 +384,7 @@ export class DateLib {
     return this.overrides?.getMonth
       ? this.overrides.getMonth(date, this.options)
       : getMonth(date);
-      // : getMonth(date, this.options);
+    // : getMonth(date, this.options);
   };
 
   /**
@@ -399,7 +397,7 @@ export class DateLib {
     return this.overrides?.getYear
       ? this.overrides.getYear(date, this.options)
       : getYear(date);
-      // : getYear(date, this.options);
+    // : getYear(date, this.options);
   };
 
   /**
@@ -411,8 +409,7 @@ export class DateLib {
   getWeek = (date: Date, options?: GetWeekOptions): number => {
     return this.overrides?.getWeek
       ? this.overrides.getWeek(date, this.options)
-      : getWeek(date);
-      // : getWeek(date, this.options);
+      : getWeek(date, this.options);
   };
 
   /**
@@ -595,8 +592,7 @@ export class DateLib {
   startOfWeek = (date: Date, options?: StartOfWeekOptions): Date => {
     return this.overrides?.startOfWeek
       ? this.overrides.startOfWeek(date, this.options)
-      // : startOfWeek(date, this.options);
-      : startOfWeek(date);
+      : startOfWeek(date, this.options);
   };
 
   /**

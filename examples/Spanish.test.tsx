@@ -1,11 +1,14 @@
 import React from "react";
 
 import { grid } from "@/test/elements";
+import { setLuxonLocale } from "@/test/luxonLocale";
 import { render } from "@/test/render";
 
 import { Spanish } from "./Spanish";
 
 const today = new Date(2021, 10, 25);
+
+setLuxonLocale("es");
 
 beforeAll(() => jest.setSystemTime(today));
 afterAll(() => jest.useRealTimers());

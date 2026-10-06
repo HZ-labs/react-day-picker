@@ -1,4 +1,4 @@
-import { es } from "date-fns/locale/es";
+import { setLuxonLocale } from "@/test/luxonLocale";
 
 import { defaultLocale, DateLib } from "../classes/DateLib.js";
 
@@ -12,16 +12,9 @@ test("should return the formatted caption", () => {
   ).toEqual("November 2022");
 });
 
-describe("when a locale is passed in through dateLib argument", () => {
+describe("when the Luxon locale is Spanish", () => {
+  setLuxonLocale("es");
   test("should format using the locale", () => {
-    expect(formatCaption(date, {}, new DateLib({ locale: es }))).toEqual(
-      "noviembre 2022"
-    );
-  });
-});
-
-describe("when a locale is passed in from options", () => {
-  test("should format using the locale", () => {
-    expect(formatCaption(date, { locale: es })).toEqual("noviembre 2022");
+    expect(formatCaption(date)).toEqual("noviembre 2022");
   });
 });

@@ -1,3 +1,4 @@
+import type { FirstWeekContainsDate, StartOfWeekOptions } from "./luxon.types.js";
 export declare function addDays(date: Date | string, amount: number): Date;
 export declare function addMonths(date: Date | string, amount: number): Date;
 export declare function addWeeks(date: Date | string, amount: number): Date;
@@ -10,12 +11,14 @@ export declare function eachMonthOfInterval(interval: {
 }): Date[];
 export declare function endOfISOWeek(date: Date | string): Date;
 export declare function endOfMonth(date: Date | string): Date;
-export declare function endOfWeek(date: Date | string): Date;
+export declare function endOfWeek(date: Date | string, options?: StartOfWeekOptions): Date;
 export declare function endOfYear(date: Date | string): Date;
 export declare function format(date: Date | string, formatStr: string): string;
 export declare function getISOWeek(date: Date | string): number;
 export declare function getMonth(date: Date | string): number;
-export declare function getWeek(date: Date | string): number;
+export declare function getWeek(date: Date | string, options?: StartOfWeekOptions & {
+    firstWeekContainsDate?: FirstWeekContainsDate;
+}): number;
 export declare function getYear(date: Date | string): number;
 export declare function isAfter(date: Date | string, dateToCompare: Date | string): boolean;
 export declare function isBefore(date: Date | string, dateToCompare: Date | string): boolean;
@@ -30,5 +33,5 @@ export declare function setYear(date: Date | string, year: number): Date;
 export declare function startOfDay(date: Date | string): Date;
 export declare function startOfISOWeek(date: Date | string): Date;
 export declare function startOfMonth(date: Date | string): Date;
-export declare function startOfWeek(date: Date | string): Date;
+export declare function startOfWeek(date: Date | string, options?: StartOfWeekOptions): Date;
 export declare function startOfYear(date: Date | string): Date;

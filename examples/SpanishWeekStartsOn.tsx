@@ -1,8 +1,9 @@
 import React from "react";
 
-import { es } from "date-fns/locale/es";
 import { DayPicker } from "react-day-picker";
 
+// DayPicker formats dates with the Luxon default locale, set once by the app:
+// `Settings.defaultLocale = "es"`.
 export function SpanishWeekStartsOn() {
-  return <DayPicker locale={es} weekStartsOn={0} />;
+  return <DayPicker weekStartsOn={0} />;
 }

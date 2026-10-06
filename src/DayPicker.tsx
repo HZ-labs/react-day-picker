@@ -40,7 +40,7 @@ import { isDateRange } from "./utils/typeguards.js";
  * @see https://daypicker.dev
  */
 export function DayPicker(initialProps: DayPickerProps) {
-  let props = initialProps;
+  const props = initialProps;
 
   const { components, formatters, labels, dateLib, locale, classNames } =
     useMemo(() => {

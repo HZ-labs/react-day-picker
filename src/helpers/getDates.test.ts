@@ -2,6 +2,9 @@ import { DateLib, defaultDateLib } from "../classes/DateLib";
 
 import { getDates } from "./getDates";
 
+// The default week starts on Monday: use Sunday to test 4, 5 and 6 week months.
+const sundayDateLib = new DateLib({ weekStartsOn: 0 });
+
 describe("when the first month and the last month are the same", () => {
   describe("when the month has 6 weeks", () => {
     const month = new Date(2023, 11, 1);
@@ -13,7 +16,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: false
           },
-          defaultDateLib
+          sundayDateLib
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 10, 26));
@@ -28,7 +31,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: true
           },
-          defaultDateLib
+          sundayDateLib
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 10, 26));
@@ -46,7 +49,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: false
           },
-          defaultDateLib
+          sundayDateLib
         );
         expect(dates).toHaveLength(35);
         expect(dates[0]).toEqual(new Date(2023, 3, 30));
@@ -59,7 +62,7 @@ describe("when the first month and the last month are the same", () => {
           [month],
           undefined,
           { fixedWeeks: true },
-          defaultDateLib
+          sundayDateLib
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 3, 30));
@@ -78,7 +81,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: false
           },
-          defaultDateLib
+          sundayDateLib
         );
         expect(dates).toHaveLength(28);
       });
@@ -89,10 +92,20 @@ describe("when the first month and the last month are the same", () => {
           [month],
           undefined,
           { fixedWeeks: true },
-          defaultDateLib
+          sundayDateLib
         );
         expect(dates).toHaveLength(42);
       });
+    });
+  });
+
+  describe("when using the default date lib", () => {
+    const month = new Date(2023, 4, 1);
+    it("the first day should be Monday", () => {
+      const dates = getDates([month], undefined, {}, defaultDateLib);
+      expect(dates[0]).toBeMonday();
+      expect(dates[0]).toEqual(new Date(2023, 4, 1));
+      expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));
     });
   });
 
@@ -150,7 +163,7 @@ describe("when the first month and the last month are different", () => {
         [firstMonth, lastMonth],
         undefined,
         { fixedWeeks: false },
-        defaultDateLib
+        sundayDateLib
       );
       expect(dates).toHaveLength(252);
       expect(dates[0]).toEqual(new Date(2023, 3, 30));

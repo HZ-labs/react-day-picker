@@ -16,6 +16,6 @@ beforeEach(() => {
 
 describe("when displaying a month with outside days", () => {
   test("should display the outside day", () => {
-    expect(gridcell(new Date(2021, 9, 31))).toBeInTheDocument();
+    expect(gridcell(new Date(2021, 11, 1))).toBeInTheDocument();
   });
 });

@@ -56,8 +56,8 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
     const prevYear = addYears(day, -1);
     const prevWeekDay = addWeeks(day, -1);
     const nextWeekDay = addWeeks(day, 1);
-    const startOfWeekDay = startOfWeek(day);
-    const endOfWeekDay = endOfWeek(day);
+    const startOfWeekDay = startOfWeek(day, { weekStartsOn: 1 });
+    const endOfWeekDay = endOfWeek(day, { weekStartsOn: 1 });
 
     beforeEach(() => act(() => dateButton(day).focus()));
     test("the day button should be focused", () => {

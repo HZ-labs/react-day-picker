@@ -75,13 +75,6 @@ exports[`should match the snapshot 1`] = `
               class="rdp-weekdays"
             >
               <th
-                aria-label="Sunday"
-                class="rdp-weekday"
-                scope="col"
-              >
-                Su
-              </th>
-              <th
                 aria-label="Monday"
                 class="rdp-weekday"
                 scope="col"
@@ -123,6 +116,13 @@ exports[`should match the snapshot 1`] = `
               >
                 Sa
               </th>
+              <th
+                aria-label="Sunday"
+                class="rdp-weekday"
+                scope="col"
+              >
+                Su
+              </th>
             </tr>
           </thead>
           <tbody
@@ -131,14 +131,6 @@ exports[`should match the snapshot 1`] = `
             <tr
               class="rdp-week"
             >
-              <td
-                class="rdp-day rdp-hidden rdp-outside"
-                data-day="2021-10-31"
-                data-hidden="true"
-                data-month="2021-10"
-                data-outside="true"
-                role="gridcell"
-              />
               <td
                 class="rdp-day"
                 data-day="2021-11-01"
@@ -223,10 +215,6 @@ exports[`should match the snapshot 1`] = `
                   6
                 </button>
               </td>
-            </tr>
-            <tr
-              class="rdp-week"
-            >
               <td
                 class="rdp-day"
                 data-day="2021-11-07"
@@ -241,6 +229,10 @@ exports[`should match the snapshot 1`] = `
                   7
                 </button>
               </td>
+            </tr>
+            <tr
+              class="rdp-week"
+            >
               <td
                 class="rdp-day"
                 data-day="2021-11-08"
@@ -325,10 +317,6 @@ exports[`should match the snapshot 1`] = `
                   13
                 </button>
               </td>
-            </tr>
-            <tr
-              class="rdp-week"
-            >
               <td
                 class="rdp-day"
                 data-day="2021-11-14"
@@ -343,6 +331,10 @@ exports[`should match the snapshot 1`] = `
                   14
                 </button>
               </td>
+            </tr>
+            <tr
+              class="rdp-week"
+            >
               <td
                 class="rdp-day"
                 data-day="2021-11-15"
@@ -427,10 +419,6 @@ exports[`should match the snapshot 1`] = `
                   20
                 </button>
               </td>
-            </tr>
-            <tr
-              class="rdp-week"
-            >
               <td
                 class="rdp-day"
                 data-day="2021-11-21"
@@ -445,6 +433,10 @@ exports[`should match the snapshot 1`] = `
                   21
                 </button>
               </td>
+            </tr>
+            <tr
+              class="rdp-week"
+            >
               <td
                 class="rdp-day"
                 data-day="2021-11-22"
@@ -530,10 +522,6 @@ exports[`should match the snapshot 1`] = `
                   27
                 </button>
               </td>
-            </tr>
-            <tr
-              class="rdp-week"
-            >
               <td
                 class="rdp-day"
                 data-day="2021-11-28"
@@ -548,6 +536,10 @@ exports[`should match the snapshot 1`] = `
                   28
                 </button>
               </td>
+            </tr>
+            <tr
+              class="rdp-week"
+            >
               <td
                 class="rdp-day"
                 data-day="2021-11-29"
@@ -603,6 +595,14 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-04"
+                data-hidden="true"
+                data-month="2021-12"
+                data-outside="true"
+                role="gridcell"
+              />
+              <td
+                class="rdp-day rdp-hidden rdp-outside"
+                data-day="2021-12-05"
                 data-hidden="true"
                 data-month="2021-12"
                 data-outside="true"

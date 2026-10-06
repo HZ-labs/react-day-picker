@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dateLib = exports.defaultDateLib = exports.defaultLocale = exports.DateLib = void 0;
-const luxonWrapper_js_1 = require("../helpers/luxonWrapper.js");
 const endOfBroadcastWeek_js_1 = require("../helpers/endOfBroadcastWeek.js");
+const luxonWrapper_js_1 = require("../helpers/luxonWrapper.js");
 const startOfBroadcastWeek_js_1 = require("../helpers/startOfBroadcastWeek.js");
 /**
  * A wrapper class around [date-fns](http://date-fns.org) that provides utility
@@ -172,8 +172,7 @@ class DateLib {
         this.endOfWeek = (date, options) => {
             return this.overrides?.endOfWeek
                 ? this.overrides.endOfWeek(date, options)
-                : (0, luxonWrapper_js_1.endOfWeek)(date);
-            // : endOfWeek(date, this.options);
+                : (0, luxonWrapper_js_1.endOfWeek)(date, this.options);
         };
         /**
          * Returns the end of the year for the given date.
@@ -247,8 +246,7 @@ class DateLib {
         this.getWeek = (date, options) => {
             return this.overrides?.getWeek
                 ? this.overrides.getWeek(date, this.options)
-                : (0, luxonWrapper_js_1.getWeek)(date);
-            // : getWeek(date, this.options);
+                : (0, luxonWrapper_js_1.getWeek)(date, this.options);
         };
         /**
          * Checks if the first date is after the second date.
@@ -416,8 +414,7 @@ class DateLib {
         this.startOfWeek = (date, options) => {
             return this.overrides?.startOfWeek
                 ? this.overrides.startOfWeek(date, this.options)
-                // : startOfWeek(date, this.options);
-                : (0, luxonWrapper_js_1.startOfWeek)(date);
+                : (0, luxonWrapper_js_1.startOfWeek)(date, this.options);
         };
         /**
          * Returns the start of the year for the given date.
@@ -430,7 +427,7 @@ class DateLib {
                 ? this.overrides.startOfYear(date)
                 : (0, luxonWrapper_js_1.startOfYear)(date);
         };
-        this.options = { locale: 'en-US', ...options };
+        this.options = { locale: "en-US", ...options };
         this.overrides = overrides;
     }
     /**

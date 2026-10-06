@@ -1,6 +1,4 @@
-import { es } from "date-fns/locale/es";
-
-import { DateLib } from "../classes/DateLib";
+import { setLuxonLocale } from "@/test/luxonLocale";
 
 import { formatMonthDropdown } from "./formatMonthDropdown";
 
@@ -10,10 +8,9 @@ test("should return the formatted month dropdown label", () => {
   expect(formatMonthDropdown(date)).toEqual("November");
 });
 
-describe("when a locale is passed in", () => {
+describe("when the Luxon locale is Spanish", () => {
+  setLuxonLocale("es");
   test("should format using the locale", () => {
-    expect(formatMonthDropdown(date, new DateLib({ locale: es }))).toEqual(
-      "noviembre"
-    );
+    expect(formatMonthDropdown(date)).toEqual("noviembre");
   });
 });

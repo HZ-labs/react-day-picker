@@ -1,4 +1,4 @@
-import { es } from "date-fns/locale/es";
+import { setLuxonLocale } from "@/test/luxonLocale";
 
 import type { Modifiers } from "../types";
 
@@ -34,8 +34,11 @@ describe("when the day is today", () => {
   });
 });
 
-test("should return the localized label", () => {
-  expect(labelDayButton(day, dayModifiers, { locale: es })).toEqual(
-    "lunes, 21 de noviembre de 2022"
-  );
+describe("when the Luxon locale is Spanish", () => {
+  setLuxonLocale("es");
+  test("should return the localized label", () => {
+    expect(labelDayButton(day, dayModifiers)).toEqual(
+      "lunes, 21 de noviembre de 2022"
+    );
+  });
 });

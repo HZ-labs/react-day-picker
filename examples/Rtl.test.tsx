@@ -1,12 +1,15 @@
 import React from "react";
 
 import { app, grid, nextButton, previousButton } from "@/test/elements";
+import { setLuxonLocale } from "@/test/luxonLocale";
 import { renderApp } from "@/test/renderApp";
 import { user } from "@/test/user";
 
 import { Rtl } from "./Rtl";
 
 const today = new Date(2021, 10, 25);
+
+setLuxonLocale("ar");
 
 beforeAll(() => jest.setSystemTime(today));
 afterAll(() => jest.useRealTimers());

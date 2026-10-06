@@ -8,10 +8,9 @@ beforeEach(() => {
   render(<WeeknumberCustom />);
 });
 
-test("should display the 1st week (even if December)", () => {
+test("should display ISO week numbers (week 53 at the end of 2020)", () => {
+  expect(screen.getByRole("rowheader", { name: "W53" })).toBeInTheDocument();
   expect(
-    screen.getByRole("rowheader", {
-      name: (name, el) => name === "W1"
-    })
-  ).toBeInTheDocument();
+    screen.queryByRole("rowheader", { name: "W1" })
+  ).not.toBeInTheDocument();
 });

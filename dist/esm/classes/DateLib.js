@@ -1,5 +1,5 @@
-import { addDays, addMonths, addWeeks, addYears, differenceInCalendarDays, differenceInCalendarMonths, eachMonthOfInterval, endOfISOWeek, endOfMonth, endOfWeek, endOfYear, format, getISOWeek, getMonth, getWeek, getYear, isAfter, isBefore, isDate, isSameDay, isSameMonth, isSameYear, max, min, setMonth, setYear, startOfDay, startOfISOWeek, startOfMonth, startOfWeek, startOfYear } from "../helpers/luxonWrapper.js";
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
+import { addDays, addMonths, addWeeks, addYears, differenceInCalendarDays, differenceInCalendarMonths, eachMonthOfInterval, endOfISOWeek, endOfMonth, endOfWeek, endOfYear, format, getISOWeek, getMonth, getWeek, getYear, isAfter, isBefore, isDate, isSameDay, isSameMonth, isSameYear, max, min, setMonth, setYear, startOfDay, startOfISOWeek, startOfMonth, startOfWeek, startOfYear } from "../helpers/luxonWrapper.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
 /**
  * A wrapper class around [date-fns](http://date-fns.org) that provides utility
@@ -169,8 +169,7 @@ export class DateLib {
         this.endOfWeek = (date, options) => {
             return this.overrides?.endOfWeek
                 ? this.overrides.endOfWeek(date, options)
-                : endOfWeek(date);
-            // : endOfWeek(date, this.options);
+                : endOfWeek(date, this.options);
         };
         /**
          * Returns the end of the year for the given date.
@@ -244,8 +243,7 @@ export class DateLib {
         this.getWeek = (date, options) => {
             return this.overrides?.getWeek
                 ? this.overrides.getWeek(date, this.options)
-                : getWeek(date);
-            // : getWeek(date, this.options);
+                : getWeek(date, this.options);
         };
         /**
          * Checks if the first date is after the second date.
@@ -413,8 +411,7 @@ export class DateLib {
         this.startOfWeek = (date, options) => {
             return this.overrides?.startOfWeek
                 ? this.overrides.startOfWeek(date, this.options)
-                // : startOfWeek(date, this.options);
-                : startOfWeek(date);
+                : startOfWeek(date, this.options);
         };
         /**
          * Returns the start of the year for the given date.
@@ -427,7 +424,7 @@ export class DateLib {
                 ? this.overrides.startOfYear(date)
                 : startOfYear(date);
         };
-        this.options = { locale: 'en-US', ...options };
+        this.options = { locale: "en-US", ...options };
         this.overrides = overrides;
     }
     /**

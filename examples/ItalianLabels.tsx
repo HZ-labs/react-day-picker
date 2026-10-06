@@ -1,16 +1,17 @@
 import React from "react";
 
-import { format } from "date-fns";
+import { DateTime } from "luxon";
 import { DayPicker } from "react-day-picker";
-import { it } from "react-day-picker/locale";
 
+// DayPicker formats dates with the Luxon default locale, set once by the app:
+// `Settings.defaultLocale = "it"`.
+// The labels are not translated by Luxon and must be passed to DayPicker.
 export function ItalianLabels() {
   return (
     <DayPicker
-      locale={it}
       labels={{
         labelDayButton: (date, { today, selected }) => {
-          let label = format(date, "PPPP", { locale: it });
+          let label = DateTime.fromJSDate(date).toFormat("DDDD");
           if (today) label = `Oggi, ${label}`;
           if (selected) label = `${label}, selezionato`;
           return label;

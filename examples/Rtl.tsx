@@ -1,8 +1,9 @@
 import React from "react";
 
-import { arSA } from "date-fns/locale/ar-SA";
 import { DayPicker } from "react-day-picker";
 
+// DayPicker formats dates with the Luxon default locale, set once by the app:
+// `Settings.defaultLocale = "ar"`.
 export function Rtl() {
-  return <DayPicker dir="rtl" locale={arSA} />;
+  return <DayPicker dir="rtl" />;
 }
